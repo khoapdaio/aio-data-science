@@ -1,4 +1,4 @@
-def write(path, data, mode='a'):
+def write(data, path, mode='a'):
 	try:
 		with open(path, mode) as file:
 			for line in data:

@@ -1,1 +1,2 @@
 admin,admin,100000
+khoapd,khoapd,1880000

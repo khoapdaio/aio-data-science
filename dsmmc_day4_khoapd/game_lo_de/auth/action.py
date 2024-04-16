@@ -1,13 +1,13 @@
 from dsmmc_day4_khoapd.game_lo_de import data
 
-PATH_DATA_TAI_KHOAN = './data/data_tai_khoan.txt'
+PATH_DATA_TAI_KHOAN = 'O:\Git\\aio-data-science\data\data_tai_khoan.txt'
 
 # 0 logout
 # 1 admin
 # 2 user
 statusLogin = 0
 
-user = None
+user: list = None
 
 
 def isAdmin(username):
@@ -30,8 +30,23 @@ def createAccount(username, password, tongTien=0):
 		return False
 
 
-def resetPassword(username, password, newPassword):
-	pass
+def resetPassword(password, newPassword):
+	global user
+	if user is not None:
+		lst_accounts = getListAccount()
+		for account in lst_accounts:
+			if account[0] == user[0] and account[1] == password:
+				account[1] = newPassword
+				break
+		return writeListAccount(lst_accounts)
+
+
+def isPasswordValid(password):
+	global user
+	if user is not None:
+		if password == user[1]:
+			return True
+	return False
 
 
 def isExist(username):
@@ -51,15 +66,41 @@ def deleteAccount(username):
 			if account[0] == username:
 				lst_accounts.remove(account)
 				break
-		data.clearData(PATH_DATA_TAI_KHOAN)
+		if writeListAccount(lst_accounts):
+			print("Đã xóa tài khoản thành công")
+			return True
 
-		for account in lst_accounts:
-			user_info = f"{account[0]},{account[1]},{account[2]}\n"
-			data.write([user_info], PATH_DATA_TAI_KHOAN)
-		print("Đã xóa tài khoản thành công")
-		return True
+		return False
 	except Exception as e:
 		print(f"Có lỗi trong quá trình xóa tài khoản: {e}")
+		return False
+
+
+def recharge(username, money: int):
+	try:
+		lst_accounts = getListAccount()
+		for account in lst_accounts:
+			if account[0] == username:
+				account[2] = money + int(account[2])
+				break
+		if writeListAccount(lst_accounts):
+			print("Đã nạp tiền tài khoản thành công!")
+			return True
+		return False
+	except Exception as e:
+		print(f"Có lỗi trong quá trình nạp tiền tài khoản: {e}")
+		return False
+
+
+def writeListAccount(newLstAccount):
+	try:
+		data.clearData(PATH_DATA_TAI_KHOAN)
+		for account in newLstAccount:
+			user_info = f"{account[0]},{account[1]},{account[2]}\n"
+			data.write([user_info], PATH_DATA_TAI_KHOAN)
+		return True
+	except Exception as e:
+		print(f"Có lỗi trong quá trình ghi danh sách tài khoản: {e}")
 		return False
 
 
@@ -90,5 +131,24 @@ def login(username, password):
 		print(f'Có lỗi xảy ra: {e}')
 
 
-def loadData():
-	pass
+def addMoney(money: int):
+	try:
+		tempUser = None
+		lst_accounts = getListAccount()
+		for account in lst_accounts:
+			if account[0] == getCurrentUser()[0]:
+				account[2] = money + int(account[2])
+				tempUser = account
+				break
+		if writeListAccount(lst_accounts):
+			global user
+			user = tempUser
+			return True
+		return False
+	except Exception as e:
+		print(f"Có lỗi trong quá trình cộng tiền tài khoản: {e}")
+		return False
+
+
+def getMoney():
+	return getCurrentUser()[2]

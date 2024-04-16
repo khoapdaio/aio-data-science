@@ -1,8 +1,8 @@
-import action
-from dsmmc_day4_khoapd.game_lo_de import game
+from dsmmc_day4_khoapd.game_lo_de import game, data
+from dsmmc_day4_khoapd.game_lo_de.auth import action
 
 
-def view():
+def doView():
 	isContiue = True
 	print("----GAME LÔ ĐỀ HỌC-----")
 	print("Vui lòng đăng nhập để chơi game")
@@ -13,7 +13,7 @@ def view():
 			if action.isAdmin(username):
 				adminView()
 			else:
-				game.view()
+				game.doView()
 			return
 		else:
 			choice = int(input("Sai username hoặc password,(1: nhập lại, 2: thoát ):"))
@@ -31,18 +31,15 @@ def adminView():
 		match choice:
 			case 1:
 				createAccountView()
-				break
 			case 2:
 				deleteAccountView()
-				break
 			case 3:
 				rechargeAccountView()
-				break
 			case 4:
-				statisticView()
-				break
+				data.doStatistic()
 			case 5:
 				action.logout()
+				break
 			case _:
 				return
 
@@ -80,8 +77,41 @@ def deleteAccountView():
 				return
 
 
+def resetPasswordView():
+	isContiue = True
+	while isContiue:
+		oldPassword = input("Nhập password cũ: ")
+		if action.isPasswordValid(oldPassword):
+			print("Mật khẩu cũ không đúng xin mời nhập lại")
+			continue
+		newPassword = input("Nhập password mới: ")
+		reNewPassword = input("Nhập lại password mới: ")
+		if newPassword != reNewPassword:
+			print("Nhập lại password mới không đúng xin mời nhập lại")
+			continue
+		if action.resetPassword(oldPassword, newPassword):
+			print("Đã thay đổi mật khẩu thành công!")
+			return
+
+
 def rechargeAccountView():
-	pass
+	isContiue = True
+	while isContiue:
+		username = input("Nhập username cần nạp tiền: ")
+		if username == "0":
+			return
+		if not action.isExist(username):
+			print("Tài khoản user không tồn tại, vui lòng nhập lại")
+			continue
+		else:
+			try:
+				money = int(input("Nhập số tiền mà bạn muốn nạp: "))
+			except ValueError:
+				print("Nhập sai định dạng.Vui lòng nhậtp lại")
+				continue
+			else:
+				if action.recharge(username, money):
+					return
 
 
 def statisticView():

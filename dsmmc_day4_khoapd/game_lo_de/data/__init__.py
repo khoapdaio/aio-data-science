@@ -1,2 +1,2 @@
-from file import *
-from statistic import *
+from .file import *
+from .statistic import *
