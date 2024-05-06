@@ -1,90 +1,104 @@
--- create database
-DROP DATABASE IF EXISTS TestingSystem;
-CREATE DATABASE TestingSystem;
-USE TestingSystem;
+-- CREATE DATABASE
+DROP
+DATABASE IF EXISTS TESTINGSYSTEM;
+CREATE
+DATABASE TESTINGSYSTEM;
+USE
+TESTINGSYSTEM;
 
--- create table: Department
-CREATE TABLE Department(
-	DepartmentID 			INT,
-    DepartmentName 			VARCHAR(50)
+-- CREATE TABLE: DEPARTMENT
+CREATE TABLE DEPARTMENT
+(
+    ID   INT,
+    NAME VARCHAR(50)
 );
 
--- create table: Position
-DROP TABLE IF EXISTS `Position`;
-CREATE TABLE `Position`(
-	PositionID				INT,
-    PositionName			VARCHAR(50)
+-- CREATE TABLE: POSITION
+DROP TABLE IF EXISTS POSITIONS;
+CREATE TABLE POSITIONS
+(
+    ID   INT,
+    NAME VARCHAR(50)
 );
 
--- create table: Account
-CREATE TABLE `Account`(
-	AccountID				INT,
-    Email					VARCHAR(50),
-    Username				VARCHAR(50),
-    FullName				CHAR(50),
-    DepartmentID 			INT,
-    PositionID				INT,
-    CreateDATE				DATE
+-- CREATE TABLE: ACCOUNT
+CREATE TABLE `ACCOUNT`
+(
+    ID            INT,
+    EMAIL         VARCHAR(50),
+    USERNAME      VARCHAR(50),
+    FULLNAME      CHAR(50),
+    DEPARTMENT_ID INT,
+    POSITION_ID   INT,
+    CREATE_AT     DATE
 );
 
--- create table: Group
-CREATE TABLE `Group`(
-	GroupID					INT,
-    GroupName				VARCHAR(50),
-    CreatorID				INT,
-    CreateDATE				DATE
+-- CREATE TABLE: GROUP
+CREATE TABLE `GROUP`
+(
+    ID         INT,
+    NAME       VARCHAR(50),
+    CREATOR_ID INT,
+    CREATE_AT  DATE
 );
 
--- create table: GroupAccount
-CREATE TABLE GroupAccount(
-	GroupID					INT,
-    AccountID				VARCHAR(50),
-    JoinDATE				DATE
+-- CREATE TABLE: GROUPACCOUNT
+CREATE TABLE GROUP_ACCOUNT
+(
+    GROUP_ID   INT,
+    ACCOUNT_ID VARCHAR(50),
+    JOIN_AT    DATE
 );
 
--- create table: TypeQuestion
-CREATE TABLE TypeQuestion (
-    TypeID 		INT,
-    TypeName 	VARCHAR(50)
+-- CREATE TABLE: TYPEQUESTION
+CREATE TABLE TYPE_QUESTION
+(
+    ID   INT,
+    NAME VARCHAR(50)
 );
 
--- create table: CategoryQuestion
-CREATE TABLE CategoryQuestion(
-    CategoryID				INT,
-    CategoryName			VARCHAR(50)
+-- CREATE TABLE: CATEGORYQUESTION
+CREATE TABLE CATEGORY_QUESTION
+(
+    ID   INT,
+    NAME VARCHAR(50)
 );
 
--- create table: Question
-CREATE TABLE Question(
-    QuestionID				INT,
-    Content					VARCHAR(50) ,
-    CategoryID				INT,
-    TypeID					INT,
-    CreatorID				INT,
-    CreateDATE				DATE
+-- CREATE TABLE: QUESTION
+CREATE TABLE QUESTION
+(
+    ID          INT,
+    CONTENT     VARCHAR(50),
+    CATEGORY_ID INT,
+    TYPE_ID     INT,
+    CREATOR_ID  INT,
+    CREATE_AT   DATE
 );
 
--- create table: Answer
-CREATE TABLE Answer(
-    Answers					INT,
-    Content					VARCHAR(50),
-    QuestionID				INT,
-    isCorrect				BIT
+-- CREATE TABLE: ANSWER
+CREATE TABLE ANSWER
+(
+    ID          INT,
+    CONTENT     VARCHAR(50),
+    QUESTION_ID INT,
+    ISCORRECT   BIT
 );
 
--- create table: Exam2
-CREATE TABLE Exam(
-    ExamID					INT,
-    Code					VARCHAR(10),
-    Title					VARCHAR(50),
-    CategoryID				INT,
-    Duration				INT,
-    CreatorID				INT,
-    CreateDATE				DATE
+-- CREATE TABLE: EXAM2
+CREATE TABLE EXAM
+(
+    ID          INT,
+    CODE        VARCHAR(10),
+    TITLE       VARCHAR(50),
+    CATEGORY_ID INT,
+    DURATION    INT,
+    CREATOR_ID  INT,
+    CREATE_AT   DATE
 );
 
--- create table: ExamQuestion
-CREATE TABLE ExamQuestion(
-    ExamID				INT,
-	QuestionID			INT
+-- CREATE TABLE: EXAMQUESTION
+CREATE TABLE EXAMQUESTION
+(
+    EXAM_ID     INT,
+    QUESTION_ID INT
 );
