@@ -145,16 +145,16 @@ VALUES
 
 INSERT INTO `ACCOUNT`( EMAIL, USERNAME, FULLNAME, DEPARTMENT_ID, POSITION_ID, CREATE_AT )
 VALUES
-    ( 'haidang29productions@gmail.com', 'dangblack',    'Nguyễn hải Đăng',     '5',  '1', '2020-03-05' ),
-    ( 'account1@gmail.com',             'quanganh',     'Nguyen Chien Thang2', '1',  '2', '2020-03-05' ),
-    ( 'account2@gmail.com',             'vanchien',     'Nguyen Van Chien',    '2',  '3', '2020-03-07' ),
-    ( 'account3@gmail.com',             'cocoduongqua', 'Duong Do',            '3',  '4', '2020-03-08' ),
-    ( 'account4@gmail.com',             'doccocaubai',  'Nguyen Chien Thang1', '4',  '4', '2020-03-10' ),
-    ( 'dapphatchetngay@gmail.com',      'khabanh',      'Ngo Ba Kha',          '6',  '3', '2020-04-05' ),
-    ( 'songcodaoly@gmail.com',          'huanhoahong',  'Bui Xuan Huan',       '7',  '2', NULL         ),
-    ( 'sontungmtp@gmail.com',           'tungnui',      'Nguyen Thanh Tung',   '8',  '1', '2020-04-07' ),
-    ( 'duongghuu@gmail.com',            'duongghuu',    'Duong Van Huu',       '9',  '2', '2020-04-07' ),
-    ( 'vtiaccademy@gmail.com',          'vtiaccademy',  'Vi Ti Ai',            '10', '1', '2020-04-09' );
+    ( 'haidang29productions@gmail.com', 'dangblack',    'Nguyễn hải Đăng',     '5',  '11', '2020-03-05' ),
+    ( 'account1@gmail.com',             'quanganh',     'Nguyen Chien Thang2', '1',  '12', '2020-03-05' ),
+    ( 'account2@gmail.com',             'vanchien',     'Nguyen Van Chien',    '2',  '13', '2020-03-07' ),
+    ( 'account3@gmail.com',             'cocoduongqua', 'Duong Do',            '3',  '14', '2020-03-08' ),
+    ( 'account4@gmail.com',             'doccocaubai',  'Nguyen Chien Thang1', '4',  '14', '2020-03-10' ),
+    ( 'dapphatchetngay@gmail.com',      'khabanh',      'Ngo Ba Kha',          '6',  '13', '2020-04-05' ),
+    ( 'songcodaoly@gmail.com',          'huanhoahong',  'Bui Xuan Huan',       '7',  '12', NULL         ),
+    ( 'sontungmtp@gmail.com',           'tungnui',      'Nguyen Thanh Tung',   '8',  '11', '2020-04-07' ),
+    ( 'duongghuu@gmail.com',            'duongghuu',    'Duong Van Huu',       '9',  '12', '2020-04-07' ),
+    ( 'vtiaccademy@gmail.com',          'vtiaccademy',  'Vi Ti Ai',            '10', '11', '2020-04-09' );
 
 -- Add data Group
 INSERT INTO `Group` ( NAME, ID, CREATE_AT )
@@ -217,16 +217,16 @@ VALUES
 -- Add data Exam
 INSERT INTO EXAM ( CODES, TITLE, CATEGORY_ID, DURATION, CREATOR_ID, CREATE_AT )
 VALUES
-    ( 'VTIQ001', N'Đề thi C#',      1,  60,  '5',  '2019-04-05' ),
-    ( 'VTIQ002', N'Đề thi PHP',     10, 60,  '2',  '2019-04-05' ),
-    ( 'VTIQ003', N'Đề thi C++',     9,  120, '2',  '2019-04-07' ),
-    ( 'VTIQ004', N'Đề thi Java',    6,  60,  '3',  '2020-04-08' ),
-    ( 'VTIQ005', N'Đề thi Ruby',    5,  120, '4',  '2020-04-10' ),
-    ( 'VTIQ006', N'Đề thi Postman', 3,  60,  '6',  '2020-04-05' ),
-    ( 'VTIQ007', N'Đề thi SQL',     2,  60,  '7',  '2020-04-05' ),
-    ( 'VTIQ008', N'Đề thi Python',  8,  60,  '8',  '2020-04-07' ),
-    ( 'VTIQ009', N'Đề thi ADO.NET', 4,  90,  '9',  '2020-04-07' ),
-    ( 'VTIQ010', N'Đề thi ASP.NET', 7,  90,  '10', '2020-04-08' );
+    ( 'VTIQ001', N'Đề thi C#',      17, 60,  '5',  '2019-04-05' ),
+    ( 'VTIQ002', N'Đề thi PHP',     18, 60,  '2',  '2019-04-05' ),
+    ( 'VTIQ003', N'Đề thi C++',     19, 120, '2',  '2019-04-07' ),
+    ( 'VTIQ004', N'Đề thi Java',    20, 60,  '3',  '2020-04-08' ),
+    ( 'VTIQ005', N'Đề thi Ruby',    21, 120, '4',  '2020-04-10' ),
+    ( 'VTIQ006', N'Đề thi Postman', 22, 60,  '6',  '2020-04-05' ),
+    ( 'VTIQ007', N'Đề thi SQL',     23, 60,  '7',  '2020-04-05' ),
+    ( 'VTIQ008', N'Đề thi Python',  24, 60,  '8',  '2020-04-07' ),
+    ( 'VTIQ009', N'Đề thi ADO.NET', 25, 90,  '9',  '2020-04-07' ),
+    ( 'VTIQ010', N'Đề thi ASP.NET', 26, 90,  '10', '2020-04-08' );
 
 
 -- Add data ExamQuestion
